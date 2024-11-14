@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
+import * as yup from "yup";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -30,12 +31,34 @@ export async function GET(request: NextRequest) {
   });
 }
 
-export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const todo = await prisma.todos.create({ data: body });
+const postSchema = yup.object({
+  description: yup.string().required(),
+  complete: yup.boolean().optional().default(false),
+});
+// .strict(true)
+// .noUnknown(true, "Solo se permiten los datos: description y complete.");
 
-  return NextResponse.json({
-    success: true,
-    data: todo,
-  });
+export async function POST(request: NextRequest) {
+  try {
+    const { complete, description } = await postSchema.validate(
+      await request.json()
+      // { stripUnknown: true }
+    );
+
+    const todo = await prisma.todos.create({ data: { complete, description } });
+
+    return NextResponse.json({
+      success: true,
+      data: todo,
+    });
+  } catch (error) {
+    // let message = "Error desconocido";
+    // if (error instanceof Error) {
+    //   message = error.message;
+    // } else if (typeof error === "string") {
+    //   message = error;
+    // }
+
+    return NextResponse.json({ success: false, error }, { status: 400 });
+  }
 }
