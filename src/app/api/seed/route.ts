@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export async function GET() {
-  await prisma.todos.deleteMany();
+  await prisma.todo.deleteMany();
 
-  await prisma.todos.createMany({
+  await prisma.todo.createMany({
     data: [
       { description: "Tarea 1", complete: true },
       { description: "Tarea 2" },

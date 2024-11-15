@@ -1,7 +1,7 @@
 import * as yup from "yup";
-import prisma from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
-import { todos } from "@prisma/client";
+import prisma from "@/lib/prisma";
+import { Todo } from "@prisma/client";
 
 interface Segments {
   params: Promise<{ id: string }>;
@@ -12,8 +12,8 @@ interface ErrorResponse {
   error: string;
 }
 
-const getTodo = async (id: string): Promise<todos | null> => {
-  return await prisma.todos.findFirst({ where: { id } });
+const getTodo = async (id: string): Promise<Todo | null> => {
+  return await prisma.todo.findFirst({ where: { id } });
 };
 
 export async function GET(request: NextRequest, { params }: Segments) {
@@ -56,7 +56,7 @@ export async function PUT(request: NextRequest, { params }: Segments) {
       await request.json()
     );
 
-    const todoUpdated = await prisma.todos.update({
+    const todoUpdated = await prisma.todo.update({
       where: { id },
       data: { complete, description },
     });

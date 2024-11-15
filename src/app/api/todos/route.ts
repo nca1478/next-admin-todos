@@ -17,7 +17,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const todos = await prisma.todos.findMany({
+  const todos = await prisma.todo.findMany({
     skip,
     take,
     orderBy: {
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       // { stripUnknown: true }
     );
 
-    const todo = await prisma.todos.create({ data: { complete, description } });
+    const todo = await prisma.todo.create({ data: { complete, description } });
 
     return NextResponse.json({
       success: true,
