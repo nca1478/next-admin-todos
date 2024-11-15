@@ -14,7 +14,5 @@ export const updateTodo = async (
     },
   }).then((res) => res.json());
 
-  console.log(todo);
-
   return todo;
 };

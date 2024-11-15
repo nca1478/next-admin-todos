@@ -14,6 +14,7 @@ export default function TodosGrid({ todos = [] }: Props) {
 
   const toggleTodo = async (id: string, complete: boolean) => {
     await todosApi.updateTodo(id, complete);
+
     router.refresh();
   };
 
