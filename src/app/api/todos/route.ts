@@ -9,10 +9,7 @@ export async function GET(request: NextRequest) {
 
   if (isNaN(take) || isNaN(skip)) {
     return NextResponse.json(
-      {
-        success: false,
-        message: "Take o Skip tienen que ser números",
-      },
+      { message: "Take o Skip deben ser números" },
       { status: 400 }
     );
   }
@@ -25,10 +22,7 @@ export async function GET(request: NextRequest) {
     },
   });
 
-  return NextResponse.json({
-    success: true,
-    data: todos,
-  });
+  return NextResponse.json(todos);
 }
 
 const postSchema = yup.object({
@@ -47,10 +41,7 @@ export async function POST(request: NextRequest) {
 
     const todo = await prisma.todo.create({ data: { complete, description } });
 
-    return NextResponse.json({
-      success: true,
-      data: todo,
-    });
+    return NextResponse.json(todo);
   } catch (error) {
     // let message = "Error desconocido";
     // if (error instanceof Error) {
@@ -59,6 +50,6 @@ export async function POST(request: NextRequest) {
     //   message = error;
     // }
 
-    return NextResponse.json({ success: false, error }, { status: 400 });
+    return NextResponse.json(error, { status: 400 });
   }
 }

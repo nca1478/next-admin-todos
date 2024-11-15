@@ -7,11 +7,6 @@ interface Segments {
   params: Promise<{ id: string }>;
 }
 
-interface ErrorResponse {
-  success: false;
-  error: string;
-}
-
 const getTodo = async (id: string): Promise<Todo | null> => {
   return await prisma.todo.findFirst({ where: { id } });
 };
@@ -21,17 +16,13 @@ export async function GET(request: NextRequest, { params }: Segments) {
 
   const todo = await getTodo(id);
   if (!todo) {
-    const response: ErrorResponse = {
-      success: false,
-      error: `Todo con id ${id} no encontrado`,
-    };
-    return NextResponse.json(response, { status: 404 });
+    return NextResponse.json(
+      { message: `Todo con id ${id} no existe` },
+      { status: 404 }
+    );
   }
 
-  return NextResponse.json({
-    success: true,
-    data: todo,
-  });
+  return NextResponse.json(todo);
 }
 
 const postSchema = yup.object({
@@ -44,11 +35,10 @@ export async function PUT(request: NextRequest, { params }: Segments) {
 
   const todo = await getTodo(id);
   if (!todo) {
-    const response: ErrorResponse = {
-      success: false,
-      error: `Todo con id ${id} no encontrado`,
-    };
-    return NextResponse.json(response, { status: 404 });
+    return NextResponse.json(
+      { message: `Todo con id ${id} no existe` },
+      { status: 404 }
+    );
   }
 
   try {
@@ -61,11 +51,8 @@ export async function PUT(request: NextRequest, { params }: Segments) {
       data: { complete, description },
     });
 
-    return NextResponse.json({
-      success: true,
-      data: todoUpdated,
-    });
+    return NextResponse.json(todoUpdated);
   } catch (error) {
-    return NextResponse.json({ success: false, error }, { status: 400 });
+    return NextResponse.json(error, { status: 400 });
   }
 }
