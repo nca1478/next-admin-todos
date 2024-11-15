@@ -7,7 +7,7 @@ export default function TopMenu() {
         <h5 hidden className="text-2xl text-gray-600 font-medium lg:block">
           Dashboard
         </h5>
-        <button className="w-12 h-16 mr-2 border-r lg:hidden">
+        <button className="w-12 h-16 -mr-2 border-r lg:hidden">
           <CiMenuBurger size={30} />
         </button>
         <div className="flex space-x-2">

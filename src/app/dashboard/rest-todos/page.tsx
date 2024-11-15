@@ -19,7 +19,6 @@ export default async function RestTodosPage() {
 
   return (
     <div>
-      <h1 className="text-2xl">Rest Todos Page</h1>
       <TodosGrid todos={todos} />
     </div>
   );
