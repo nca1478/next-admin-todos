@@ -1,8 +1,8 @@
-import { todos } from "@prisma/client";
+import { Todo } from "@prisma/client";
 import TodoItem from "../todoItem/TodoItem";
 
 interface Props {
-  todos?: todos[];
+  todos?: Todo[];
 }
 
 export default function TodosGrid({ todos = [] }: Props) {

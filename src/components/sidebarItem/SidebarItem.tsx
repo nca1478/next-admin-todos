@@ -23,12 +23,7 @@ export default function SidebarItem({ path, icon, title }: Props) {
         }`}
       >
         {icon}
-
-        {currentPath === path ? (
-          <span className="mr-1 font-medium">{title}</span>
-        ) : (
-          <span className="group-hover:text-white">{title}</span>
-        )}
+        <span className="group-hover:text-white-700">{title}</span>
       </Link>
     </li>
   );

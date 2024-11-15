@@ -1,7 +1,7 @@
-import { todos } from "@prisma/client";
+import { Todo } from "@prisma/client";
 
 interface Props {
-  todo: todos;
+  todo: Todo;
 }
 
 export default function TodoItem({ todo }: Props) {
