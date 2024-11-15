@@ -12,6 +12,7 @@ export const updateTodo = async (
     headers: {
       "Content-Type": "application/json",
     },
+    cache: "no-cache",
   }).then((res) => res.json());
 
   return todo;
