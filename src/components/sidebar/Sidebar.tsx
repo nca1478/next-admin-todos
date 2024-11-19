@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import SidebarItem from "../sidebarItem/SidebarItem";
 import {
+  IoBasketOutline,
   IoCalendarOutline,
   IoCheckboxOutline,
   IoCodeWorkingOutline,
   IoListOutline,
 } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
+import { SidebarItem } from "../sidebarItem/SidebarItem";
 
 const menuItems = [
   {
@@ -30,9 +31,14 @@ const menuItems = [
     icon: <IoCodeWorkingOutline size={30} />,
     title: "Cookies",
   },
+  {
+    path: "/dashboard/products",
+    icon: <IoBasketOutline size={30} />,
+    title: "Products",
+  },
 ];
 
-export default function Sidebar() {
+export const Sidebar = () => {
   return (
     <>
       <aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
@@ -83,4 +89,4 @@ export default function Sidebar() {
       </aside>
     </>
   );
-}
+};

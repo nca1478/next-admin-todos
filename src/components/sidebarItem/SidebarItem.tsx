@@ -9,7 +9,7 @@ interface Props {
   title: string;
 }
 
-export default function SidebarItem({ path, icon, title }: Props) {
+export const SidebarItem = ({ path, icon, title }: Props) => {
   const currentPath = usePathname();
 
   return (
@@ -27,4 +27,4 @@ export default function SidebarItem({ path, icon, title }: Props) {
       </Link>
     </li>
   );
-}
+};

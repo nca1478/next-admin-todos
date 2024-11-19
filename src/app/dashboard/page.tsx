@@ -1,4 +1,4 @@
-import WidgetItem from "@/components/widgetItem/WidgetItem";
+import { WidgetItem } from "@/components";
 
 export default function DashboardPage() {
   return (

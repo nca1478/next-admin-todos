@@ -22,9 +22,7 @@ export const TabBar = ({
   };
 
   return (
-    <div
-      className={`grid w-full space-x-2 rounded-xl bg-gray-200 p-2 ${`grid-cols-${tabOptions.length}`}`}
-    >
+    <div className="grid w-full space-x-2 rounded-xl bg-gray-200 p-2 grid-cols-5">
       {tabOptions.map((tab) => (
         <div key={tab}>
           <input

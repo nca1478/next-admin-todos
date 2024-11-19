@@ -1,5 +1,5 @@
-export * as Sidebar from "./sidebar/Sidebar";
-export * as SidebarItem from "./sidebarItem/SidebarItem";
-export * as TopMenu from "./topMenu/TopMenu";
-export * as WidgetItem from "./widgetItem/WidgetItem";
+export { Sidebar } from "./sidebar/Sidebar";
+export { SidebarItem } from "./sidebarItem/SidebarItem";
 export { TabBar } from "./tabBar/TabBar";
+export { TopMenu } from "./topMenu/TopMenu";
+export { WidgetItem } from "./widgetItem/WidgetItem";
