@@ -1,3 +1,11 @@
+// las rutas se renderizen para cada usuario en el momento de la solicitud (*).
+export const dynamic = "force-dynamic";
+
+// Tiempo de revalidación predeterminado para un diseño o página (*)
+export const revalidate = 0;
+
+// *: solo para Page, Layout, or Route Handler
+
 import prisma from "@/lib/prisma";
 import { NewTodo } from "@/todos";
 import TodosGrid from "@/todos/components/todosGrid/TodosGrid";
