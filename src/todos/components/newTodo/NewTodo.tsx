@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoTrashOutline } from "react-icons/io5";
 import * as todosApi from "@/todos/helpers/todos";
+import { addTodo } from "@/todos/actions/todo-actions";
 
 export const NewTodo = () => {
   const router = useRouter();
@@ -14,11 +15,12 @@ export const NewTodo = () => {
 
     if (description.trim().length === 0) return;
 
-    await todosApi.createTodo(description);
+    // await todosApi.createTodo(description);
 
+    addTodo(description);
     setDescription("");
 
-    router.refresh();
+    // router.refresh();
   };
 
   const deleteCompleted = async () => {
