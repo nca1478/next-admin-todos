@@ -1,4 +1,4 @@
-// "use client"
+// estas funciones funcionan en el cliente
 
 import { getCookie, hasCookie, setCookie } from "cookies-next";
 
@@ -21,4 +21,17 @@ export const addProductToCart = (id: string) => {
   }
 
   setCookie("cart", JSON.stringify(cookieCart));
+};
+
+export const removeProductToCart = (id: string) => {
+  const cookieCart = getCookieCart();
+
+  // alternativa:
+  // if (id in cookieCart) {
+  if (cookieCart[id]) {
+    delete cookieCart[id];
+    setCookie("cart", JSON.stringify(cookieCart));
+  }
+
+  return false;
 };
