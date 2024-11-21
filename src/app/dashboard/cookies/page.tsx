@@ -12,9 +12,11 @@ export default async function CookiesPage() {
   // const allCookies = cookieStore.getAll();
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <div className="flex flex-col">
-        <span className="text-3xl">Tabs</span>
+    <div>
+      <span className="text-3xl">Tabs</span>
+      <hr className="mb-5" />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <TabBar currentTab={+cookieTab} />
         {/* {JSON.stringify(allCookies)} */}
       </div>

@@ -23,6 +23,8 @@ export default async function ServerTodosPage() {
   return (
     <>
       <span className="text-3xl">Server Actions</span>
+      <hr className="mb-5" />
+
       <div className="w-full px-5 mx-5 mb-5 mt-4">
         <NewTodo />
       </div>

@@ -28,6 +28,9 @@ export default async function RestTodosPage() {
 
   return (
     <div>
+      <span className="text-3xl">Rest Todos</span>
+      <hr className="mb-5" />
+
       <div className="w-full px-5 mx-5 mb-5">
         <NewTodo />
       </div>
