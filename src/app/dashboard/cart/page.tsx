@@ -13,7 +13,7 @@ interface ProductInCart {
   quantity: number;
 }
 
-const getProductsInCart = (cart: { [id: string]: number }) => {
+const getProductsInCart = (cart: { [id: string]: number }): ProductInCart[] => {
   const productsInCart: ProductInCart[] = [];
 
   for (const id of Object.keys(cart)) {
@@ -40,7 +40,7 @@ export default async function CartPage() {
 
   return (
     <div>
-      <h1 className="text-5xl">Productos en el carrito</h1>
+      <h1 className="text-3xl">Productos en el carrito</h1>
       <hr className="mb-5" />
 
       <div className="flex flex-col sm:flex-row gap-2 w-full">
