@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.seoptimer.com",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
     ],
   },
 };
