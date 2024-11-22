@@ -1,3 +1,4 @@
+export { LogoutButton } from "./logoutButton/LogoutButton";
 export { Sidebar } from "./sidebar/Sidebar";
 export { SidebarItem } from "./sidebarItem/SidebarItem";
 export { TabBar } from "./tabBar/TabBar";
