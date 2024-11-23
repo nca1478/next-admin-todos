@@ -13,6 +13,13 @@
 5. Ejecutar `npm run dev`
 6. Ejecutar el seed para poblar la db: `http://localhost:3000/api/seed`
 
+## Nota: Credenciales por defecto
+
+```
+email: test1@gmail.com
+password: 123456
+```
+
 # Prisma Commands
 
 1. Inicializar un esquema de prisma: `npx prisma init`
