@@ -11,12 +11,28 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2">
+    <div className="grid gap-6 grid-cols-1">
       <WidgetItem title="Usuario conectado S-side">
-        <div className="flex flex-col">
-          <span>{session.user?.name}</span>
-          <span>{session.user?.image}</span>
-          <span>{session.user?.email}</span>
+        <div className="flex flex-col break-words w-full">
+          <span>
+            <span className="font-bold">Nombre: </span>
+            {session.user?.name}
+          </span>
+          <span>
+            <span className="font-bold">Imagen: </span>
+            {session.user?.image}
+          </span>
+          <span>
+            <span className="font-bold">Email: </span>
+            {session.user?.email}
+          </span>
+          <span className="font-bold">User Session: </span>
+          <pre
+            className="break-words bg-gray-100 p-4 rounded w-full overflow-x-scroll"
+            style={{ wordBreak: "break-all" }}
+          >
+            {JSON.stringify(session, null, 2)}
+          </pre>
         </div>
       </WidgetItem>
     </div>

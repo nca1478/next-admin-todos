@@ -22,3 +22,10 @@
 5. Generar el cliente de prisma: `npx prisma generate`
 6. Crear un esquema a partir de una db existente: `npx prisma db pull`
 7. Crear db sin migracion: `npx prisma db push`
+
+# Otros comandos interesantes
+
+1. Verificar y actualizar dependencias:
+2. Instalar en modo global: `npm install -g npm-check-updates`.
+3. Verificar dependencias: `ncu`
+4. Actualizar dependencias: `ncu -u`
