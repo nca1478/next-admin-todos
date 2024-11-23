@@ -13,6 +13,7 @@ export const Sidebar = async () => {
     ? session.user?.image
     : "https://randomuser.me/api/portraits/men/20.jpg";
   const userName = session?.user?.name ?? "No name";
+  const userRoles = session?.user?.roles ?? ["client"];
 
   return (
     <>
@@ -43,7 +44,9 @@ export const Sidebar = async () => {
             <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
               {userName}
             </h5>
-            <span className="hidden text-gray-400 lg:block">Admin</span>
+            <span className="hidden text-gray-400 lg:block capitalize">
+              {userRoles.join(",")}
+            </span>
           </div>
 
           {/* SidebarItems */}

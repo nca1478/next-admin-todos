@@ -36,8 +36,12 @@ export const authOptions: NextAuthOptions = {
         where: { email: token.email ?? "no-email" },
       });
 
+      if (dbUser?.isActive === false) {
+        throw Error("Usuario no está activo");
+      }
+
       token.roles = dbUser?.roles ?? ["no-roles"];
-      token.id = dbUser?.id ?? ["no-id"];
+      token.id = dbUser?.id ?? "no-id";
 
       return token;
     },
