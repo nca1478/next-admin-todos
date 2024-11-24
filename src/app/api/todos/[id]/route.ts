@@ -2,13 +2,26 @@ import * as yup from "yup";
 import { NextResponse, NextRequest } from "next/server";
 import prisma from "@/lib/prisma";
 import { Todo } from "@prisma/client";
+import { getUserSessionServer } from "@/auth/actions/auth-actions";
 
 interface Segments {
   params: Promise<{ id: string }>;
 }
 
 const getTodo = async (id: string): Promise<Todo | null> => {
-  return await prisma.todo.findFirst({ where: { id } });
+  const user = await getUserSessionServer();
+
+  if (!user) {
+    return null;
+  }
+
+  const todo = await prisma.todo.findFirst({ where: { id } });
+
+  if (todo?.userId !== user.id) {
+    return null;
+  }
+
+  return todo;
 };
 
 export async function GET(request: NextRequest, { params }: Segments) {

@@ -1,7 +1,13 @@
+import { getUserSessionServer } from "@/auth/actions/auth-actions";
 import { ProductCard } from "@/products";
 import { products } from "@/products/data/products";
+import { redirect } from "next/navigation";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const user = await getUserSessionServer();
+
+  if (!user) redirect("/api/auth/signin");
+
   return (
     <div>
       <h1 className="text-3xl">Productos disponibles</h1>

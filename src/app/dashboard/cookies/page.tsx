@@ -1,5 +1,7 @@
+import { getUserSessionServer } from "@/auth/actions/auth-actions";
 import { TabBar } from "@/components";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Cookies Page",
@@ -10,6 +12,10 @@ export default async function CookiesPage() {
   const cookieStore = await cookies();
   const cookieTab = cookieStore.get("selectedTab")?.value ?? "1";
   // const allCookies = cookieStore.getAll();
+
+  const user = await getUserSessionServer();
+
+  if (!user) redirect("/api/auth/signin");
 
   return (
     <div>
