@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import * as todosApi from "@/todos/helpers/todos";
 import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
-import { addTodo, deleteCompletedTodos } from "@/todos/actions/todo-actions";
+import { deleteCompletedTodos } from "@/todos/actions/todo-actions";
 
 export const NewTodo = () => {
   const router = useRouter();

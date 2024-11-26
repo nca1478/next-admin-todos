@@ -6,7 +6,7 @@ import { CiLogout } from "react-icons/ci";
 import { IoHourglassOutline } from "react-icons/io5";
 
 export const LogoutButton = () => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   if (status === "loading") {
     return (

@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getServerSession } from "next-auth";
+// import { getServerSession } from "next-auth";
 
 import { menuItems } from "./menuItems";
 import { SidebarItem } from "../sidebarItem/SidebarItem";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+// import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { LogoutButton } from "../logoutButton/LogoutButton";
+import { auth } from "../../../auth";
 
 export const Sidebar = async () => {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
+  const session = await auth();
   const avatarUrl = session?.user?.image
     ? session.user?.image
     : "https://randomuser.me/api/portraits/men/20.jpg";

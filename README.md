@@ -1,3 +1,5 @@
+# Nextjs Admin-todos App
+
 # Development
 
 1. Renombrar archivo .env.example a .env y rellenar las variables de entorno.
@@ -12,6 +14,11 @@
 
 5. Ejecutar `npm run dev`
 6. Ejecutar el seed para poblar la db: `http://localhost:3000/api/seed`
+
+# Production
+
+1. Ejecutar `npm run build`
+2. Ejecutar `npm start`
 
 ## Nota: Credenciales por defecto
 
