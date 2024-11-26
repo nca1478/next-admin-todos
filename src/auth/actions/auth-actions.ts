@@ -31,7 +31,9 @@ const createUser = async (email: string, password: string) => {
     data: {
       email: email,
       password: bcrypt.hashSync(password),
-      name: email.split("@")[0],
+
+      // extrae el username del correo y lo capitaliza
+      name: email.split("@")[0].replace(/^./, (str) => str.toUpperCase()),
     },
   });
 
