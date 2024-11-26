@@ -1,9 +1,26 @@
 "use client";
 
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function ProfilePage() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/api/auth/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div>
+        <h1 className="text-3xl">Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <div>
